@@ -1,0 +1,122 @@
+# Data
+data_type: 'eeg'
+dataset_name: 'TUSZ_EEG'
+data_dir: '../data/tusz_eeg/4_class'
+pretrained_word_embed_file: 'your_path_to_glove_vec/glove.840B.300d.txt'
+channel: 19
+pretrained: null
+task_type: 'classification'
+num_class: 4
+# Output
+out_dir: '../out/tusz_eeg/4_class/EEGGraph_attention'
+save_adj_path: '../data/tusz_eeg/4_class/draw/adj/EEGGraph_attention'
+save_y_draw_path: '../data/tusz_eeg/4_class/draw/roc/EEGGraph_attention'
+feature_file_name: 'feature_matrix.npy'
+adj_file_name: 'adjacency_feature_matrix.npy'
+label_file_name: 'label_y.npy'
+index_file_name: '4_class_window_index.csv'
+index_file_path: "../data/tusz_eeg/4_class/4_class_window_index.csv"
+
+
+data_seed: 1111 # Fixed
+seed: 1111
+
+# Model architecture
+model_name: 'EEGGraphClf'
+
+hidden_size: 256 # 128!
+
+
+# Bert configure
+use_bert: False
+
+
+
+# Regularization
+dropout: 0.5
+gl_dropout: 0.01 # IGL: 0.01!
+
+
+# Graph neural networks
+bignn: False
+graph_module: 'lstm' # gcn, ggnn
+graph_type: 'dynamic'
+graph_learn: False
+graph_metric_type: 'EEGGraph_attention' # weighted_cosine, kernel, attention, gat_attention, cosine, EEGGraph_attention
+graph_skip_conn: 0.3 # GL: 0.1, IGL: 0.1!
+update_adj_ratio: 0.4 # IGL: 0.4!
+graph_include_self: False # cosine-KNN-GCN: False
+graph_learn_regularization: True
+smoothness_ratio: 0.5 # GL: 0.5!
+degree_ratio: 0.01 # GL: 0.01!
+sparsity_ratio: 0.3 # GL: 0.3!
+graph_learn_ratio: 0 # 0
+input_graph_knn_size: 950 # IGL: 950! ；从
+graph_learn_hidden_size: 70 # 70
+graph_learn_epsilon: 0.3 # GL: 0.3, IGL: 0.3!
+graph_learn_topk: null #
+# graph_learn_hidden_size2: 70 # kernel: 90, attention: 70
+# graph_learn_epsilon2: 0 # weighted_cosine: 0
+# graph_learn_topk2: null # attn-GCN: 140: 64.1, kernel-GCN: 100
+graph_learn_num_pers: 8 # weighted_cosine: IGL: 12!
+graph_hops: 2
+
+# GAT only
+gat_nhead: 8
+gat_alpha: 0.2
+
+# LSTM
+rnn_units: 64
+num_rnn_layers: 2
+
+# Training
+optimizer: 'adam' # adagrad adam
+learning_rate: 0.001 # adam: 0.001
+weight_decay: 0 # adam: 0
+lr_patience: 2
+lr_reduce_factor: 0.5 # GCN: 0.5
+grad_clipping: null # null
+grad_accumulated_steps: 1
+eary_stop_metric: 'f1' # acc
+pretrain_epoch: 0 #
+max_iter: 10
+eps_adj: 8e-3 # 8e-3
+
+
+
+# EEG data only
+batch_size: 64
+data_split_ratio: '0.9,0.1' # train/dev split
+fix_vocab_embed: True
+node_num: 19
+eeg_embed_dim: 100
+top_word_vocab: 10000
+min_word_freq: 12
+max_seq_len: 1000
+word_dropout: 0.5 # 0.5
+rnn_dropout: 0.5 # 0.5
+no_gnn: False
+is_patient: False
+
+
+
+random_seed: 1234
+shuffle: True # Whether to shuffle the examples during training
+max_epochs: 100
+patience: 10
+verbose: -1
+print_every_epochs: 1 # Print every X epochs
+
+
+# Testing
+out_predictions: False # Whether to output predictions
+out_adj: False
+save_adj: False
+
+save_params: True # Whether to save params
+logging: True # Turn it off for Codalab
+
+
+# Device
+no_cuda: False
+cuda_id: 0
