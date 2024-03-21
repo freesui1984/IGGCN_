@@ -1,6 +1,6 @@
 # IGECN
 
-Code & data accompanying the paper ["Epileptic Multi-seizure Type Classification of EEG Data based on Iterative Graph Learning"].
+Code & data accompanying the paper ["Classification of Epileptic Seizures in EEG Data based on Iterative Gated Graph Convolution Network"].
 
 
 
