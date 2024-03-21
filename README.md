@@ -1,4 +1,4 @@
-# IGECN
+# IGGCN
 
 Code & data accompanying the paper ["Classification of Epileptic Seizures in EEG Data based on Iterative Gated Graph Convolution Network"].
 
@@ -30,7 +30,7 @@ Please take the following steps to create a python virtual environment.
 
 The processed data will be stored in the `data` folder
 
-### Run the IGECN models
+### Run the IGGCN models
 
 * Cd into the `src` folder
 * Run the IDGL model and report the performance
