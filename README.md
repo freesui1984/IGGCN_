@@ -2,6 +2,7 @@
 
 Code & data accompanying the paper ["Classification of Epileptic Seizures in EEG Data based on Iterative Gated Graph Convolution Network"].
 
+The core code is currently undergoing refinement, and we intend to release it in its entirety following the official publication of the paper.
 
 
 
