@@ -24,8 +24,7 @@ Please take the following steps to create a python virtual environment.
 * Start preprocessing the raw data
 
     ```
-         python prepare_tusz_label.py
-         python log_feature.py
+         prepare_data_for_tusz.ipynb
     ```
 
 The processed data will be stored in the `data` folder
@@ -36,7 +35,7 @@ The processed data will be stored in the `data` folder
 * Run the IDGL model and report the performance
 
     ```
-         python main.py -config config/tusz_eeg/4_class/igecn.yml
+         python main.py -config config/tusz_eeg/4_class/ggnn.yml
     ```
 
 
