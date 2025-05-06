@@ -4,7 +4,7 @@ dataset_name: 'TUSZ_EEG'
 SSL: False
 cl_decay_steps: 3000 # Scheduled sampling decay steps.
 use_curriculum_learning: True
-data_dir: '../data/tusz_eeg/4_class/gcrnn'
+data_dir: '../data/tusz_eeg/4_class/iggcn'
 ssl_data_dir: '../data/tusz_eeg/4_class/SSL'
 pretrained_word_embed_file: 'your_path_to_glove_vec/glove.840B.300d.txt'
 channel: 19
@@ -12,7 +12,7 @@ pretrained: null # '../out/tusz_eeg/4_class/IGGCN/SSL/train_3'
 task_type: 'classification'
 num_class: 4
 # Output
-out_dir: '../out/tusz_eeg/4_class/GGNN'
+out_dir: '../out/tusz_eeg/4_class/IGGCN'
 save_adj_path: '../data/tusz_eeg/4_class/draw/adj/EEGGraph_attention'
 save_y_draw_path: '../data/tusz_eeg/4_class/draw/roc/EEGGraph_attention'
 feature_file_name: 'all_feature_matrix.npy'
@@ -26,19 +26,19 @@ train_feature_file_name: 'train_feature_matrix.npy'
 train_adj_file_name: 'train_adjacency_feature_matrix.npy'
 train_label_file_name: 'train_label_y.npy'
 train_index_file_name: 'train_4_class_window_index.csv'
-train_index_file_path: "../data/tusz_eeg/4_class/gcrnn/train_4_class_window_index.csv"
+train_index_file_path: "../data/tusz_eeg/4_class/iggcn/train_4_class_window_index.csv"
 
 dev_feature_file_name: 'dev_feature_matrix.npy'
 dev_adj_file_name: 'dev_adjacency_feature_matrix.npy'
 dev_label_file_name: 'dev_label_y.npy'
 dev_index_file_name: 'dev_4_class_window_index.csv'
-dev_index_file_path: "../data/tusz_eeg/4_class/gcrnn/dev_4_class_window_index.csv"
+dev_index_file_path: "../data/tusz_eeg/4_class/iggcn/dev_4_class_window_index.csv"
 
 test_feature_file_name: 'test_feature_matrix.npy'
 test_adj_file_name: 'test_adjacency_feature_matrix.npy'
 test_label_file_name: 'test_label_y.npy'
 test_index_file_name: 'test_4_class_window_index.csv'
-test_index_file_path: "../data/tusz_eeg/4_class/gcrnn/test_4_class_window_index.csv"
+test_index_file_path: "../data/tusz_eeg/4_class/iggcn/test_4_class_window_index.csv"
 
 # SSL
 gcgru_activation: 'tanh' # tanh, relu
